@@ -1,0 +1,81 @@
+name: LinkedIn Job Scraper
+
+on:
+  schedule:
+    # Run daily at 8:00 AM UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Create config file
+      run: |
+        cat > config.json << 'EOL'
+        {
+          "proxies": {},
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+          },
+          "OpenAI_API_KEY": "",
+          "OpenAI_Model": "",
+          "resume_path": "",
+          "search_queries": [
+            {
+              "keywords": "data OR analytics OR 'business intelligence'",
+              "location": "Costa Rica", 
+              "f_WT": ""
+            }
+          ],
+          "desc_words": [],
+          "title_exclude": [],
+          "title_include": ["data", "analytics", "business intelligence"],
+          "company_exclude": [],
+          "languages": ["en", "es"],
+          "timespan": "r86400",
+          "jobs_tablename": "jobs",
+          "filtered_jobs_tablename": "filtered_jobs",
+          "db_path": "./data/jobs.db",
+          "pages_to_scrape": 1,
+          "rounds": 1,
+          "days_to_scrape": 1
+        }
+        EOL
+        
+    - name: Run LinkedIn scraper
+      run: |
+        mkdir -p data
+        python main.py
+        
+    - name: Commit and push if there are changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        timestamp=$(date +%Y%m%d)
+        
+        # Add new files
+        git add data/linkedin_jobs_*.csv
+        git add data/*.db
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Add LinkedIn jobs data for $timestamp"
+          git push
+        fi

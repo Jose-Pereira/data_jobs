@@ -1,0 +1,28 @@
+{
+  "proxies": {},
+  "headers": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  },
+  "OpenAI_API_KEY": "",
+  "OpenAI_Model": "",
+  "resume_path": "",
+  "search_queries": [
+    {
+      "keywords": "data OR analytics OR 'business intelligence'",
+      "location": "Costa Rica", 
+      "f_WT": ""
+    }
+  ],
+  "desc_words": [],
+  "title_exclude": [],
+  "title_include": ["data", "analytics", "business intelligence"],
+  "company_exclude": [],
+  "languages": ["en", "es"],
+  "timespan": "r86400",
+  "jobs_tablename": "jobs_test",
+  "filtered_jobs_tablename": "filtered_jobs_test",
+  "db_path": "./data/jobs_test.db",
+  "pages_to_scrape": 1,
+  "rounds": 1,
+  "days_to_scrape": 1
+}

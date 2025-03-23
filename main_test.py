@@ -226,7 +226,7 @@ def job_exists(df, job):
 def get_jobcards(config):
     #Function to get the job cards from the search results page
     all_jobs = []
-    job_limit = 5  # Limit to 5 jobs for testing
+    job_limit = 3  # Limit to 3 jobs for testing
     for k in range(0, config['rounds']):
         for query in config['search_queries']:
             keywords = quote(query['keywords']) # URL encode the keywords
@@ -297,7 +297,7 @@ def main(config_file):
             desc_soup = get_with_retry(job['job_url'], config)
             job['job_description'] = transform_job(desc_soup)
             language = safe_detect(job['job_description'])
-            if language not in config['languages']:
+            if language not in config['languages'] and len(config['languages']) > 0:
                 print('Job description language not supported: ', language)
                 #continue
             job_list.append(job)
@@ -308,35 +308,40 @@ def main(config_file):
         filtered_list = [job for job in job_list if job not in jobs_to_add]
         df = pd.DataFrame(jobs_to_add)
         df_filtered = pd.DataFrame(filtered_list)
-        df['date_loaded'] = datetime.now()
-        df_filtered['date_loaded'] = datetime.now() if not df_filtered.empty else None
-        df['date_loaded'] = df['date_loaded'].astype(str)
-        if not df_filtered.empty:
-            df_filtered['date_loaded'] = df_filtered['date_loaded'].astype(str)
         
-        if conn is not None:
-            #Update or Create the database table for the job list
-            if table_exists(conn, jobs_tablename):
-                update_table(conn, df, jobs_tablename)
-            else:
-                create_table(conn, df, jobs_tablename)
-                
-            #Update or Create the database table for the filtered out jobs
+        # Only proceed if we have jobs to add
+        if not df.empty:
+            df['date_loaded'] = datetime.now()
+            df_filtered['date_loaded'] = datetime.now() if not df_filtered.empty else None
+            df['date_loaded'] = df['date_loaded'].astype(str)
             if not df_filtered.empty:
-                if table_exists(conn, filtered_jobs_tablename):
-                    update_table(conn, df_filtered, filtered_jobs_tablename)
+                df_filtered['date_loaded'] = df_filtered['date_loaded'].astype(str)
+            
+            if conn is not None:
+                #Update or Create the database table for the job list
+                if table_exists(conn, jobs_tablename):
+                    update_table(conn, df, jobs_tablename)
                 else:
-                    create_table(conn, df_filtered, filtered_jobs_tablename)
+                    create_table(conn, df, jobs_tablename)
+                    
+                #Update or Create the database table for the filtered out jobs
+                if not df_filtered.empty:
+                    if table_exists(conn, filtered_jobs_tablename):
+                        update_table(conn, df_filtered, filtered_jobs_tablename)
+                    else:
+                        create_table(conn, df_filtered, filtered_jobs_tablename)
+            else:
+                print("Error! cannot create the database connection.")
+            
+            # Save to CSV files with timestamp
+            timestamp = datetime.now().strftime("%Y%m%d")
+            df.to_csv(f'data/linkedin_jobs_{timestamp}.csv', index=False, encoding='utf-8')
+            if not df_filtered.empty:
+                df_filtered.to_csv(f'data/linkedin_jobs_filtered_{timestamp}.csv', index=False, encoding='utf-8')
+            
+            print(f"Saved {len(df)} jobs to data/linkedin_jobs_{timestamp}.csv")
         else:
-            print("Error! cannot create the database connection.")
-        
-        # Save to CSV files with timestamp
-        timestamp = datetime.now().strftime("%Y%m%d")
-        df.to_csv(f'data/linkedin_jobs_{timestamp}.csv', index=False, encoding='utf-8')
-        if not df_filtered.empty:
-            df_filtered.to_csv(f'data/linkedin_jobs_filtered_{timestamp}.csv', index=False, encoding='utf-8')
-        
-        print(f"Saved {len(df)} jobs to data/linkedin_jobs_{timestamp}.csv")
+            print("No jobs to add after filtering")
     else:
         print("No jobs found")
     
@@ -345,7 +350,7 @@ def main(config_file):
 
 
 if __name__ == "__main__":
-    config_file = 'config.json'  # default config file
+    config_file = 'config_test.json'  # default to test config file
     if len(sys.argv) == 2:
         config_file = sys.argv[1]
         
