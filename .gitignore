@@ -101,9 +101,4 @@ venv.bak/
 
 # Project specific
 config.json
-*.csv
-data/*.db
-
-# Exceptions - Allow these files to be tracked
-!data/linkedin_jobs_*.csv
-!data/*.db
+# Removed CSV and DB patterns to allow tracking of data files
