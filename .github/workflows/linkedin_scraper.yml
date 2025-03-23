@@ -68,9 +68,9 @@ jobs:
         git config --local user.name "GitHub Action"
         timestamp=$(date +%Y%m%d)
         
-        # Add new files
-        git add data/linkedin_jobs_*.csv
-        git add data/*.db
+        # Add new files (force add ignored files)
+        git add -f data/linkedin_jobs_*.csv
+        git add -f data/*.db
         
         # Check if there are changes to commit
         if git diff --staged --quiet; then
