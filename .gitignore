@@ -103,3 +103,7 @@ venv.bak/
 config.json
 *.csv
 data/*.db
+
+# Exceptions - Allow these files to be tracked
+!data/linkedin_jobs_*.csv
+!data/*.db
