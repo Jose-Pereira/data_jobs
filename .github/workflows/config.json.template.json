@@ -1,0 +1,25 @@
+{
+  "proxies": {},
+  "headers": {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  },
+  "search_queries": [
+    {
+      "keywords": "data OR analytics OR 'business intelligence'",
+      "location": "Costa Rica", 
+      "f_WT": ""
+    }
+  ],
+  "desc_words": [],
+  "title_exclude": [],
+  "title_include": ["data", "analytics", "business intelligence"],
+  "company_exclude": [],
+  "languages": ["en", "es"],
+  "timespan": "r86400",
+  "jobs_tablename": "jobs",
+  "filtered_jobs_tablename": "filtered_jobs",
+  "db_path": "./data/jobs.db",
+  "pages_to_scrape": 10,
+  "rounds": 1,
+  "days_to_scrape": 1
+}

@@ -36,9 +36,6 @@ jobs:
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
           },
-          "OpenAI_API_KEY": "",
-          "OpenAI_Model": "",
-          "resume_path": "",
           "search_queries": [
             {
               "keywords": "data OR analytics OR 'business intelligence'",
@@ -55,7 +52,7 @@ jobs:
           "jobs_tablename": "jobs",
           "filtered_jobs_tablename": "filtered_jobs",
           "db_path": "./data/jobs.db",
-          "pages_to_scrape": 1,
+          "pages_to_scrape": 3,
           "rounds": 1,
           "days_to_scrape": 1
         }
@@ -81,5 +78,5 @@ jobs:
           echo "No changes to commit"
         else
           git commit -m "Add LinkedIn jobs data for $timestamp"
-          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/Jose-Pereira/data_jobs.git HEAD:main
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
         fi

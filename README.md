@@ -1,10 +1,12 @@
 # LinkedIn Job Scraper
 
-This project scrapes job listings from LinkedIn based on defined keywords and stores them in a SQLite database and CSV files.
+This project scrapes job listings from LinkedIn based on defined keywords and stores them in a SQLite database and CSV files. It's designed to run automatically via GitHub Actions.
 
 ## Features
 
 - Scrapes LinkedIn job listings based on keywords and location
+- Automatically detects initial run to gather all active jobs regardless of posting date
+- On subsequent runs, focuses only on recently posted jobs
 - Filters jobs based on title, description, and language
 - Stores results in a SQLite database
 - Saves daily job listings as CSV files with timestamps
@@ -17,7 +19,7 @@ This project scrapes job listings from LinkedIn based on defined keywords and st
    ```
    pip install -r requirements.txt
    ```
-3. Configure your search parameters in `config.json`
+3. Copy `config.json.template` to `config.json` and customize your search parameters
 
 ## Configuration
 
@@ -45,9 +47,9 @@ Edit `config.json` to customize your job search:
   "jobs_tablename": "jobs",
   "filtered_jobs_tablename": "filtered_jobs",
   "db_path": "./data/jobs.db",
-  "pages_to_scrape": 1,
+  "pages_to_scrape": 3,
   "rounds": 1,
-  "days_to_scrape": 1
+  "days_to_scrape": 7
 }
 ```
 
@@ -56,12 +58,13 @@ Edit `config.json` to customize your job search:
 - `proxies`: Proxy settings if needed
 - `headers`: HTTP headers for requests
 - `search_queries`: List of search queries with keywords and location
+  - `f_WT`: Filter for remote work (empty for all, "2" for remote only)
 - `title_include`: Keywords to include in job titles
 - `title_exclude`: Keywords to exclude from job titles
 - `company_exclude`: Companies to exclude from results
 - `desc_words`: Words to exclude based on job description
 - `languages`: Languages to include (e.g., "en", "es")
-- `timespan`: Time period for job listings (r86400 = last 24 hours)
+- `timespan`: Time period for job listings (r86400 = last 24 hours, r604800 = past week, r2592000 = past month). Used only for non-initial runs.
 - `jobs_tablename`: Name of the database table for matched jobs
 - `filtered_jobs_tablename`: Name of the database table for filtered jobs
 - `db_path`: Path to the SQLite database
@@ -83,12 +86,17 @@ You can also specify a custom config file:
 python main.py custom_config.json
 ```
 
+### Initial Run vs. Subsequent Runs
+
+- **Initial Run**: When first executed (no existing database), the scraper will gather all active job listings regardless of posting date.
+- **Subsequent Runs**: After the initial run, the scraper will only collect jobs posted within the timeframe specified by the `timespan` parameter in your config.
+
 ## GitHub Actions Automation
 
 This project includes a GitHub Actions workflow that runs the scraper daily and commits the results to the repository. The workflow is defined in `.github/workflows/linkedin_scraper.yml`.
 
 The workflow:
-1. Runs daily at 8:00 AM UTC
+1. Runs daily at 4:00 AM UTC
 2. Sets up Python
 3. Installs dependencies
 4. Creates a config file
@@ -102,13 +110,3 @@ You can also trigger the workflow manually from the Actions tab in your GitHub r
 The scraper produces:
 1. A SQLite database in `data/jobs.db` with tables for matched and filtered jobs
 2. Daily CSV files in the `data/` directory with timestamps (e.g., `linkedin_jobs_20250323.csv`)
-
-## Testing
-
-To run a test with a limited number of jobs:
-
-```
-python main_test.py
-```
-
-This will use `config_test.json` and limit the search to 3 positions.
