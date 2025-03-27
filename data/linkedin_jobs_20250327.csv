@@ -1,0 +1,131 @@
+title,company,location,date,job_url,job_description,date_loaded
+Data Analyst - Social Media Department,Brand Builders,"San Pedro, San Jose, Costa Rica",2025-03-27,https://www.linkedin.com/jobs/view/4191501871/,"Job Overview
+We are seeking a detail-oriented and proactive Data Analyst to join our Social Media team. The ideal candidate will be responsible for building and maintaining the data infrastructure to track and analyze key performance metrics for all social media campaigns. This includes monitoring link clicks, sign-ups, FTDs (First-Time Deposits), likes, follows, comments, impressions, and revenue generated across social media platforms on a daily, weekly, monthly, and yearly basis.
+Additionally, you will play a critical role in supporting the Influencer Program. You will work closely with the Influencer Managers to design, track, and assess influencers performance, including the calculation of Cost Per Engagement (CPE), ROI, and ranking the influencers performance based on views, clicks, sign-ups, FTDs, and overall impact on the business.
+This role is pivotal in helping us make data-driven decisions to optimize our social media strategy and maximize our return on investment.
+Key Responsibilities:
+1. Social Media Analytics:
+● Build and maintain tracking systems:
+ Develop and manage dashboards that track key performance indicators (KPIs) such as link clicks, sign-ups, FTDs, likes, follows, comments, impressions, and revenue across all social media channels.
+●
+ Monitor performance metrics:
+ Continuously track and analyze campaign performance, providing insights on areas for improvement.
+● 
+Report generation: 
+Prepare weekly, monthly, and yearly reports on social media performance
+● 
+Data visualization:
+ Create visually compelling and easy-to-understand reports and dashboards using tools such as Google Data Studio, Tableau, or Power BI.
+2. Influencer Program Support:
+●
+ Track influencers performance: 
+Work with the Influencer Managers to track and assess the performance of influencers across various campaigns.
+●
+ Monitor and optimize CPE: 
+Calculate the Cost Per Engagement (CPE) and provide insights on how to improve cost efficiency in influencer marketing.
+● 
+Rank Influencers:
+ Develop and maintain a ranking system for influencers based on key metrics like views, clicks, sign-ups, FTDs, and overall ROI of the influencer campaigns.
+● 
+Influencer ROI analysis:
+ Evaluate the financial performance of influencer campaigns and suggest adjustments to improve ROI.
+3. Data Strategy & Recommendations:
+● 
+Data-driven insights:
+ Provide actionable insights to the Social Media and Influencer teams, recommending strategies to improve engagement, increase conversions, and optimize spend.
+● 
+A/B Testing: 
+Work with the team to implement and analyze A/B tests for social media campaigns and influencer content.
+● 
+Cross-functional collaboration:
+ Collaborate with other departments to align social media analytics with broader business goals.
+Minimum Qualifications:
+● 
+Experience: 
+Minimum of 2-3 years of experience as a Data Analyst, Social Media Analyst, or a similar role, preferably in a digital marketing or social media environment.
+Experience in tracking and analyzing key performance metrics, particularly in the context of social media campaigns and influencer marketing.
+● 
+Skills:
+ 
+Proven and strong proficiency in data analytics tools (e.g., Google Analytics, Tableau, Google Data Studio, Excel, or Power BI).
+Solid understanding of social media platforms (Facebook, Instagram, Twitter, TikTok, etc.) and their associated analytics tools.
+Ability to calculate CPE and assess ROI for influencer campaigns.
+Knowledge of A/B testing methodologies and campaign optimization.
+Strong Excel/Google Sheets skills, including the ability to work with large data sets, pivot tables, and complex formulas.
+Proficient in data visualization: Creating clear and actionable reports and dashboards.
+Preferred Qualifications:
+Familiarity with social media advertising (e.g., Facebook Ads, Instagram Ads, etc.) and how to measure campaign success.
+Experience working with Influencer Marketing platforms or CRM tools.
+Strong analytical thinking with attention to detail.
+Excellent communication skills to present findings and explain data insights to non-technical stakeholders.
+Ability to work independently and as part of a cross-functional team.
+Problem-solving mindset with a focus on continuous improvement.
+What We Offer:
+● Competitive salary and benefits package.
+● Opportunities for career growth and development.
+● Collaborative and innovative work environment.
+● A chance to be part of an exciting and rapidly growing team.        
+            
+                            
+            ",2025-03-27 04:26:49.318672
+Data Engineer,Launchpad Technologies Inc.,Costa Rica,2025-03-27,https://www.linkedin.com/jobs/view/4194537103/,"Launchpad, a people-first technology company, is a leader in North America´s rapidly growing tech sector. Through two solutions, Launchpad supports its clients with digital transformation:
+- PaasportTM, our iPaaS solution, streamlines software integration and automates workflows. 
+- Nearshore Staff Augmentation, our managed IT staffing service, connects top IT talent across various geographical regions, bringing industry expertise to leading clients. 
+Based in Vancouver, Canada, our operational footprint spans across North and South America, with a second headquarters in Santiago, Chile.
+In 2023, our unwavering dedication to innovation garnered recognition as a Deloitte Technology Fast 50™ Program Company. Our clientele boasts industry leaders such as Walmart, GM, TIME Magazine, Salesforce, Tableau, Splunk, Bolt.com, Freedom House, and more.
+At Launchpad, we genuinely care about our people as individuals. If you are looking for a team that values growth, drive, and passion for your craft, if you’re seeking a place to achieve your goals and dreams with fairness and integrity, then we’d love to hear from you.
+About The Role
+The 
+Senior Data Engineer
+ plays a pivotal role in designing, building, and maintaining scalable data infrastructure to support both analytical and operational needs across the organization. Leveraging deep expertise in cloud data platforms, ETL development, and programming, this role will focus on optimizing data pipelines, improving performance, and ensuring the integrity and reliability of our data ecosystem. You will collaborate closely with data scientists, analysts, and business stakeholders to drive impactful insights through reliable and accessible data.
+Key Responsibilities
+- Design, develop, and maintain high-quality, scalable, and efficient data pipelines and ETL workflows. 
+- Continuously optimize data processing for performance, latency, and scalability using best-in-class practices. 
+- Adapt ETL solutions in response to changes in internal and external data sources, including third-party APIs and event streams. 
+- Monitor and enhance data quality, implementing automated checks and validation mechanisms to ensure consistent and reliable datasets. 
+- Integrate data across diverse systems to support unified data access and reporting. 
+- Translate existing data processing logic from R to Python, ensuring consistency and performance. 
+- Automate data-related tasks using tools such as SQL, Python, Rivery, Fivetran, and Airflow. 
+- Build and manage data models, testing suites, documentation, and version control using dbt (Data Build Tool). 
+Required Qualifications
+- Bachelor's degree or higher in Computer Science, Engineering, Mathematics, Statistics, or a related field. 
+- 5–8 years of hands-on experience in data engineering, software development, or a related discipline. 
+- Strong experience with cloud platforms such as AWS, Azure, or Google Cloud Platform, particularly with data services like Amazon Redshift or Google BigQuery. 
+- Proficient in Python and SQL (knowledge of R is a plus), with a solid foundation in building and maintaining complex data pipelines and ETL solutions. 
+- Strong analytical and problem-solving abilities, capable of troubleshooting complex data issues and delivering robust, scalable solutions. 
+Why work for Launchpad?
+- 100% remote
+- People first culture
+- Excellent compensation in US Dollars
+- Hardware setup for working from home
+- Work with global teams and prominent brands based in North America, Europe, and Asia
+- Training allowances
+- Personal time off (PTO) for vacations, study leave, personal time, etc. 
+- ...and more!
+At Launchpad, we genuinely care about our people as individuals. If you are looking for a team that values growth, drive, and passion for your craft, if you’re seeking a place to achieve your goals and dreams with fairness and integrity, then you are the future of Launchpad. Launchpad is committed to fostering a diverse and representative workforce and an inclusive work environment where all employees are respected and treated equally.
+Are you ready to elevate your career at Launchpad? We want to hear your story! Contact us today.
+                
+            
+                            
+            ",2025-03-27 04:26:49.318672
+Fraud Data Mining Analyst,HP,"Heredia, Heredia, Costa Rica",2025-03-27,https://www.linkedin.com/jobs/view/4194525353/,"As part of the Business-to-Consumer Fraud team, this role will report directly to the Fraud Prevention Manager. Brand Security organization provides world-class decision support driving profitable growth and exceptional Shareholder value through our commitment to operational excellence, people development, and innovation.
+We provide accurate and timely financial information meeting the Company’s regulatory and fiduciary responsibilities with unwavering integrity.
+This is a leadership role within the Americas Business to Consumer Team (B2C Team), with primary focus on fraud investigations. Data Mining Analyst will mitigate risk and loss to HP by investigating and monitoring existing and potential fraudulent situations within HP financial payment transactions.
+Responsibilities
+- Perform advanced data analysis using fraud detection and analytical tools to uncover potential payment fraud, applying specialized expertise in data mining, pattern recognition and risk management.
+- Serve as the main point of contact for Fraud Analysts and HP Business Unit partners, providing support and guidance on suspected payment fraud cases.
+- Prepares timely, thorough, and concise written reports of investigation results to Senior Management, DSRA and Fraud Analysts
+- Make sure effective communication is established between the Data Mining team, the DSRA members, the B2C analysts, Operations and Management as needed to identify, prevent and respond to fraud trends and attacks as detected.
+Qualifications
+- University degree or comparable proven experience desired.
+- Very Fluent English (90%+) (oral and written).
+- Broad knowledge of end-to-end order flow.
+- Desired knowledge in dealing and engaging with shipping carriers to reroute fraud packages.
+- Intermediate skills required with Microsoft Excel, PowerPoint, Outlook and other primary Office applications.
+- Ideal Candidate is a self-starter with a strong sense of initiative and the ability to think creatively to solve complex problems.
+- Proven ability to work independently while applying strong analytical and problem-solving skills to drive impactful, efficient and effective results.
+- Perform within high stress situations and respond with sense of urgency.
+- Ability to work flexible hours including overtime and weekend support as required.        
+            
+                            
+            ",2025-03-27 04:26:49.318672
